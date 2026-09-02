@@ -207,25 +207,25 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-4 sm:p-8 flex-grow flex flex-col lg:flex-row gap-8">
+    <div className="max-w-7xl mx-auto p-3 sm:p-6 lg:p-8 flex-grow flex flex-col lg:flex-row gap-6 lg:gap-8">
       
       {/* Left Column: Branding & Professional Polish Info */}
       <div className="w-full lg:w-1/3 flex flex-col justify-center pr-0 lg:pr-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold mb-6 w-fit">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold mb-3 sm:mb-6 w-fit">
           <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
           100% Anonymous & Secure
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-2 sm:mb-4">
           Speak Your Truth <br />
           <span className="text-indigo-600">Without Compromise.</span>
         </h1>
 
-        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
+        <p className="text-slate-600 text-sm sm:text-lg leading-relaxed mb-4 sm:mb-8">
           Our platform ensures your identity remains completely hidden. We do not collect names, emails, or IP addresses. Your safety is our priority.
         </p>
 
-        <div className="space-y-4">
+        <div className="hidden sm:space-y-4 sm:block mb-4 lg:mb-0">
           <div className="flex items-start gap-3">
             <div className="mt-1 bg-slate-200 p-1.5 rounded flex items-center justify-center shrink-0">
               <Check className="w-4 h-4 text-slate-700 stroke-[2.5]" />
@@ -249,18 +249,18 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
       </div>
 
       {/* Right Column: Submission Form & Quick Status Card */}
-      <div className="w-full lg:w-2/3 flex flex-col gap-6">
+      <div className="w-full lg:w-2/3 flex flex-col gap-5 sm:gap-6">
         
         {/* Submission Card */}
-        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-8">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold text-slate-800">New Anonymous Report</h2>
-            <span className="text-xs text-slate-400 font-mono">REF: NEW_ENTRY</span>
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 sm:p-8">
+          <div className="flex justify-between items-center mb-5 sm:mb-6">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-800">New Anonymous Report</h2>
+            <span className="text-[11px] sm:text-xs text-slate-400 font-mono bg-slate-50 px-2 py-1 rounded border border-slate-100">REF: NEW_ENTRY</span>
           </div>
 
           {/* Validation Error Banner */}
           {validationError && (
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm mb-6 animate-in fade-in">
+            <div className="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm mb-5 sm:mb-6 animate-in fade-in">
               <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
               <div className="flex-1">
                 <span className="font-semibold block">Submission Error</span>
@@ -281,7 +281,7 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
                   id="complaint-category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value as ComplaintCategory)}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 cursor-pointer"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-base sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 cursor-pointer min-h-[44px]"
                 >
                   {CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>
@@ -304,14 +304,14 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
                   placeholder="Summarize your concern"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900"
+                  className="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-base sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 min-h-[44px]"
                 />
               </div>
 
             </div>
 
             {/* Detailed Description */}
-            <div className="flex flex-col gap-1.5 mb-6">
+            <div className="flex flex-col gap-1.5 mb-5 sm:mb-6">
               <div className="flex justify-between items-center">
                 <label htmlFor="complaint-description" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                   Detailed Description
@@ -328,7 +328,7 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
                 placeholder="Provide as much detail as possible. Your anonymity is guaranteed..."
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm h-28 focus:ring-2 focus:ring-indigo-500 outline-none resize-none text-slate-900 leading-relaxed"
+                className="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-base sm:text-sm min-h-[120px] focus:ring-2 focus:ring-indigo-500 outline-none resize-none text-slate-900 leading-relaxed"
               />
             </div>
 
@@ -337,7 +337,7 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
               id="submit-complaint-btn"
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-indigo-200 transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 disabled:from-indigo-400 disabled:to-indigo-400 text-white font-extrabold py-3.5 min-h-[50px] rounded-xl shadow-md shadow-indigo-200/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer text-base sm:text-sm tracking-wide"
             >
               {isSubmitting ? (
                 <>
@@ -355,11 +355,14 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
         </div>
 
         {/* Status Track Card (Quick Track Banner) */}
-        <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 justify-between">
+        <div className="bg-indigo-50/80 border border-indigo-100 rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 justify-between shadow-xs">
           <div className="flex-grow">
-            <h3 className="text-indigo-900 font-bold mb-1">Already submitted?</h3>
+            <h3 className="text-indigo-950 font-bold text-sm sm:text-base mb-0.5 sm:mb-1 flex items-center gap-2">
+              <Search className="w-4 h-4 text-indigo-600 sm:hidden" />
+              Already submitted a report?
+            </h3>
             <p className="text-indigo-700 text-xs">
-              Enter your 12-digit Report ID to check the latest resolution status.
+              Enter your Report ID to check the real-time status.
             </p>
           </div>
           <form onSubmit={handleQuickTrackSubmit} className="flex gap-2 w-full sm:w-auto">
@@ -368,13 +371,13 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
               placeholder="SPK-9F82-X7L4"
               value={quickTrackId}
               onChange={(e) => setQuickTrackId(e.target.value.toUpperCase())}
-              className="w-full sm:w-48 bg-white border border-indigo-200 rounded-lg px-4 py-2 text-sm font-mono focus:ring-2 focus:ring-indigo-500 outline-none uppercase text-slate-900"
+              className="w-full sm:w-48 bg-white border border-indigo-200 rounded-xl px-3.5 py-2.5 text-base sm:text-sm font-mono font-bold focus:ring-2 focus:ring-indigo-500 outline-none uppercase text-slate-900 min-h-[44px]"
             />
             <button
               type="submit"
-              className="bg-indigo-900 text-white text-sm font-bold px-4 py-2 rounded-lg hover:bg-black transition-colors shrink-0 cursor-pointer flex items-center gap-1.5"
+              className="bg-slate-900 hover:bg-black active:scale-[0.97] text-white text-sm font-extrabold px-5 py-2.5 rounded-xl transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px] min-w-[84px] shadow-xs"
             >
-              <Search className="w-3.5 h-3.5" />
+              <Search className="w-4 h-4" />
               <span>Track</span>
             </button>
           </form>

@@ -273,7 +273,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
                 placeholder="admin@speaksafe.org"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none min-h-[44px]"
               />
             </div>
 
@@ -288,7 +288,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
                 placeholder="••••••••••••"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none min-h-[44px]"
               />
             </div>
 
@@ -296,7 +296,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
               id="admin-login-submit-btn"
               type="submit"
               disabled={isLoggingIn}
-              className="w-full inline-flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 disabled:bg-slate-500 transition-colors shadow-sm cursor-pointer"
+              className="w-full inline-flex items-center justify-center space-x-2 px-4 py-3 rounded-xl text-base sm:text-sm font-extrabold text-white bg-slate-900 hover:bg-black active:scale-[0.98] disabled:bg-slate-500 transition-all shadow-md cursor-pointer min-h-[48px]"
             >
               {isLoggingIn ? (
                 <>
@@ -348,17 +348,17 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
 
   // Render Admin Dashboard
   return (
-    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-6">
+    <div className="max-w-7xl mx-auto py-4 sm:py-6 px-3 sm:px-6 lg:px-8 space-y-4 sm:space-y-6">
       
       {/* Admin Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 text-white p-5 rounded-2xl shadow-md">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 text-white p-4 sm:p-5 rounded-2xl shadow-md">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm">
+          <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm shrink-0">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
-            <div className="flex items-center space-x-2">
-              <h1 className="text-lg font-bold tracking-tight">SpeakSafe Admin Console</h1>
+            <div className="flex items-center space-x-2 flex-wrap">
+              <h1 className="text-base sm:text-lg font-bold tracking-tight">SpeakSafe Admin Console</h1>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
                 Authorized
               </span>
@@ -369,28 +369,28 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
           </div>
         </div>
 
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center gap-2 sm:space-x-3 w-full sm:w-auto">
           {onOpenSetupModal && (
             <button
               onClick={onOpenSetupModal}
-              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors min-h-[40px] cursor-pointer"
             >
               <Database className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Supabase SQL Guide</span>
+              <span>SQL Guide</span>
             </button>
           )}
 
           <button
             onClick={loadComplaints}
             title="Refresh Complaints"
-            className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors shrink-0 min-h-[40px] min-w-[40px] flex items-center justify-center cursor-pointer"
           >
             <RefreshCw className={`w-4 h-4 ${isLoadingData ? 'animate-spin' : ''}`} />
           </button>
 
           <button
             onClick={handleLogout}
-            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-600/20 text-rose-300 border border-rose-500/30 hover:bg-rose-600/30 transition-colors"
+            className="inline-flex items-center justify-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-rose-600/20 text-rose-300 border border-rose-500/30 hover:bg-rose-600/30 transition-colors min-h-[40px] cursor-pointer"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Sign Out</span>
@@ -399,59 +399,58 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
       </div>
 
       {/* Stats Overview Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-        <div className="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
+        <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200 shadow-xs">
           <span className="text-xs font-medium text-slate-500 block">Total Complaints</span>
-          <span className="text-2xl font-extrabold text-slate-900 mt-1 block">{stats.total}</span>
+          <span className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1 block">{stats.total}</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-blue-200/90 shadow-xs bg-gradient-to-br from-blue-50/50 to-white">
+        <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-blue-200 shadow-xs bg-gradient-to-br from-blue-50/50 to-white">
           <span className="text-xs font-semibold text-blue-700 block">New</span>
-          <span className="text-2xl font-extrabold text-blue-900 mt-1 block">{stats.new}</span>
+          <span className="text-xl sm:text-2xl font-extrabold text-blue-900 mt-1 block">{stats.new}</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-amber-200/90 shadow-xs bg-gradient-to-br from-amber-50/50 to-white">
+        <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-amber-200 shadow-xs bg-gradient-to-br from-amber-50/50 to-white">
           <span className="text-xs font-semibold text-amber-800 block">Under Review</span>
-          <span className="text-2xl font-extrabold text-amber-900 mt-1 block">{stats.underReview}</span>
+          <span className="text-xl sm:text-2xl font-extrabold text-amber-900 mt-1 block">{stats.underReview}</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-purple-200/90 shadow-xs bg-gradient-to-br from-purple-50/50 to-white">
+        <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-purple-200 shadow-xs bg-gradient-to-br from-purple-50/50 to-white">
           <span className="text-xs font-semibold text-purple-700 block">In Progress</span>
-          <span className="text-2xl font-extrabold text-purple-900 mt-1 block">{stats.inProgress}</span>
+          <span className="text-xl sm:text-2xl font-extrabold text-purple-900 mt-1 block">{stats.inProgress}</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-emerald-200/90 shadow-xs bg-gradient-to-br from-emerald-50/50 to-white">
+        <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-emerald-200 shadow-xs bg-gradient-to-br from-emerald-50/50 to-white">
           <span className="text-xs font-semibold text-emerald-700 block">Resolved</span>
-          <span className="text-2xl font-extrabold text-emerald-900 mt-1 block">{stats.resolved}</span>
+          <span className="text-xl sm:text-2xl font-extrabold text-emerald-900 mt-1 block">{stats.resolved}</span>
         </div>
-        <div className="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs bg-slate-50/50">
+        <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200 shadow-xs bg-slate-50/50">
           <span className="text-xs font-semibold text-slate-600 block">Closed</span>
-          <span className="text-2xl font-extrabold text-slate-800 mt-1 block">{stats.closed}</span>
+          <span className="text-xl sm:text-2xl font-extrabold text-slate-800 mt-1 block">{stats.closed}</span>
         </div>
       </div>
 
       {/* Toolbar: Search & Filters */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
+      <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row gap-3 sm:gap-4 items-stretch md:items-center justify-between">
         
         {/* Search Input */}
         <div className="relative flex-1">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search by Report ID, title, or category..."
+            placeholder="Search by Report ID, title, category..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none min-h-[44px]"
           />
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5">
           
           {/* Status Filter */}
-          <div className="flex items-center space-x-1.5">
-            <Filter className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-xs font-semibold text-slate-600">Status:</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1">
+            <span className="text-[11px] font-bold text-slate-500 uppercase">Status:</span>
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-medium bg-white text-slate-800 focus:ring-2 focus:ring-indigo-500"
+              className="w-full sm:w-auto px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold bg-white text-slate-800 focus:ring-2 focus:ring-indigo-500 min-h-[40px] cursor-pointer"
             >
               <option value="All">All Statuses</option>
               {STATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
@@ -459,13 +458,12 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
           </div>
 
           {/* Category Filter */}
-          <div className="flex items-center space-x-1.5">
-            <Tag className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-xs font-semibold text-slate-600">Category:</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1">
+            <span className="text-[11px] font-bold text-slate-500 uppercase">Category:</span>
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-medium bg-white text-slate-800 focus:ring-2 focus:ring-indigo-500"
+              className="w-full sm:w-auto px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold bg-white text-slate-800 focus:ring-2 focus:ring-indigo-500 min-h-[40px] cursor-pointer"
             >
               <option value="All">All Categories</option>
               {CATEGORY_OPTIONS.map(c => <option key={c} value={c}>{c}</option>)}
@@ -477,7 +475,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
       </div>
 
       {/* Complaints Table & Responsive Cards */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         
         {isLoadingData ? (
           <div className="p-12 text-center space-y-3">
@@ -493,69 +491,121 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-xs sm:text-sm">
-              <thead>
-                <tr className="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
-                  <th className="py-3.5 px-4">Report ID</th>
-                  <th className="py-3.5 px-4">Category</th>
-                  <th className="py-3.5 px-4">Title</th>
-                  <th className="py-3.5 px-4">Status</th>
-                  <th className="py-3.5 px-4">Created Date</th>
-                  <th className="py-3.5 px-4">Updated Date</th>
-                  <th className="py-3.5 px-4 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 font-normal">
-                {filteredComplaints.map((item) => (
-                  <tr 
-                    key={item.id} 
-                    className="hover:bg-slate-50/80 transition-colors group cursor-pointer"
-                    onClick={() => handleOpenDetails(item)}
-                  >
-                    <td className="py-3.5 px-4 font-mono font-bold text-indigo-700 whitespace-nowrap">
+          <div>
+            
+            {/* Mobile Card List View (block md:hidden) */}
+            <div className="block md:hidden divide-y divide-slate-100">
+              {filteredComplaints.map((item) => (
+                <div 
+                  key={item.id}
+                  onClick={() => handleOpenDetails(item)}
+                  className="p-4 hover:bg-slate-50 active:bg-slate-100 transition-colors cursor-pointer space-y-2.5"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-mono text-xs font-extrabold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100">
                       {item.report_id}
-                    </td>
-                    <td className="py-3.5 px-4 whitespace-nowrap">
-                      <span className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">
-                        {item.category}
-                      </span>
-                    </td>
-                    <td className="py-3.5 px-4 max-w-xs font-medium text-slate-900 truncate">
-                      {item.title}
-                    </td>
-                    <td className="py-3.5 px-4 whitespace-nowrap">
-                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold ${
-                        item.status === 'New' ? 'bg-blue-50 text-blue-700 border border-blue-200' :
-                        item.status === 'Under Review' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
-                        item.status === 'In Progress' ? 'bg-purple-50 text-purple-700 border border-purple-200' :
-                        item.status === 'Resolved' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
-                        'bg-slate-100 text-slate-700 border border-slate-200'
-                      }`}>
-                        {item.status}
-                      </span>
-                    </td>
-                    <td className="py-3.5 px-4 text-slate-500 text-xs whitespace-nowrap">
-                      {new Date(item.created_at).toLocaleDateString()}
-                    </td>
-                    <td className="py-3.5 px-4 text-slate-500 text-xs whitespace-nowrap">
-                      {new Date(item.updated_at).toLocaleDateString()}
-                    </td>
-                    <td className="py-3.5 px-4 text-right whitespace-nowrap">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleOpenDetails(item);
-                        }}
-                        className="px-3 py-1.5 rounded-lg text-xs font-semibold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-colors"
-                      >
-                        Review
-                      </button>
-                    </td>
+                    </span>
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
+                      item.status === 'New' ? 'bg-blue-50 text-blue-700 border border-blue-200' :
+                      item.status === 'Under Review' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
+                      item.status === 'In Progress' ? 'bg-purple-50 text-purple-700 border border-purple-200' :
+                      item.status === 'Resolved' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
+                      'bg-slate-100 text-slate-700 border border-slate-200'
+                    }`}>
+                      {item.status}
+                    </span>
+                  </div>
+
+                  <h3 className="text-sm font-bold text-slate-900 leading-snug line-clamp-2">
+                    {item.title}
+                  </h3>
+
+                  <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
+                    <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold text-[11px]">
+                      {item.category}
+                    </span>
+                    <span>{new Date(item.created_at).toLocaleDateString()}</span>
+                  </div>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOpenDetails(item);
+                    }}
+                    className="w-full mt-1 py-2 text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-xl hover:bg-indigo-100 transition-colors flex items-center justify-center gap-1.5 min-h-[40px]"
+                  >
+                    <span>Review & Take Action</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Table View (hidden md:block) */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+                    <th className="py-3.5 px-4">Report ID</th>
+                    <th className="py-3.5 px-4">Category</th>
+                    <th className="py-3.5 px-4">Title</th>
+                    <th className="py-3.5 px-4">Status</th>
+                    <th className="py-3.5 px-4">Created Date</th>
+                    <th className="py-3.5 px-4">Updated Date</th>
+                    <th className="py-3.5 px-4 text-right">Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-normal">
+                  {filteredComplaints.map((item) => (
+                    <tr 
+                      key={item.id} 
+                      className="hover:bg-slate-50 transition-colors group cursor-pointer"
+                      onClick={() => handleOpenDetails(item)}
+                    >
+                      <td className="py-3.5 px-4 font-mono font-bold text-indigo-700 whitespace-nowrap">
+                        {item.report_id}
+                      </td>
+                      <td className="py-3.5 px-4 whitespace-nowrap">
+                        <span className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">
+                          {item.category}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 max-w-xs font-medium text-slate-900 truncate">
+                        {item.title}
+                      </td>
+                      <td className="py-3.5 px-4 whitespace-nowrap">
+                        <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold ${
+                          item.status === 'New' ? 'bg-blue-50 text-blue-700 border border-blue-200' :
+                          item.status === 'Under Review' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
+                          item.status === 'In Progress' ? 'bg-purple-50 text-purple-700 border border-purple-200' :
+                          item.status === 'Resolved' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
+                          'bg-slate-100 text-slate-700 border border-slate-200'
+                        }`}>
+                          {item.status}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-500 text-xs whitespace-nowrap">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-500 text-xs whitespace-nowrap">
+                        {new Date(item.updated_at).toLocaleDateString()}
+                      </td>
+                      <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleOpenDetails(item);
+                          }}
+                          className="px-3 py-1.5 rounded-lg text-xs font-semibold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-colors"
+                        >
+                          Review
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
           </div>
         )}
 
@@ -563,29 +613,29 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
 
       {/* Complaint Details & Admin Notes Drawer Modal */}
       {selectedComplaint && (
-        <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-xl max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 overflow-y-auto animate-in fade-in">
+          <div className="bg-white rounded-t-2xl sm:rounded-2xl border border-slate-200 shadow-xl max-w-3xl w-full h-[92vh] sm:h-auto sm:max-h-[90vh] flex flex-col overflow-hidden">
             
             {/* Modal Header */}
-            <div className="px-6 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
-              <div className="space-y-0.5">
-                <span className="text-xs font-mono font-bold text-indigo-400">
+            <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
+              <div className="space-y-0.5 overflow-hidden pr-2">
+                <span className="text-[11px] font-mono font-bold text-indigo-400 block">
                   REPORT ID: {selectedComplaint.report_id}
                 </span>
-                <h3 className="text-base font-bold truncate max-w-md">
+                <h3 className="text-sm sm:text-base font-bold truncate">
                   {selectedComplaint.title}
                 </h3>
               </div>
               <button
                 onClick={() => setSelectedComplaint(null)}
-                className="text-slate-400 hover:text-white text-sm px-2 py-1 rounded-lg bg-slate-800"
+                className="text-slate-400 hover:text-white text-xs px-3 py-2 rounded-xl bg-slate-800 shrink-0 min-h-[38px] cursor-pointer"
               >
                 ✕ Close
               </button>
             </div>
 
             {/* Modal Content */}
-            <div className="p-6 overflow-y-auto space-y-6 flex-1">
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-5 flex-1">
               
               {detailError && (
                 <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-800">
@@ -594,14 +644,14 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
               )}
 
               {/* Status Selector & Meta Bar */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                <div className="space-y-1">
-                  <span className="text-xs font-bold uppercase text-slate-500 block">Category</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="space-y-0.5">
+                  <span className="text-[11px] font-bold uppercase text-slate-500 block">Category</span>
                   <span className="text-sm font-semibold text-slate-800">{selectedComplaint.category}</span>
                 </div>
 
                 <div className="space-y-1">
-                  <label htmlFor="status-selector" className="text-xs font-bold uppercase text-slate-700 block">
+                  <label htmlFor="status-selector" className="text-[11px] font-bold uppercase text-slate-700 block">
                     Update Complaint Status
                   </label>
                   <select
@@ -609,7 +659,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
                     value={selectedComplaint.status}
                     disabled={isSavingStatus}
                     onChange={(e) => handleStatusChange(e.target.value as ComplaintStatus)}
-                    className="px-3 py-2 rounded-xl border border-slate-300 font-semibold text-xs sm:text-sm bg-white text-slate-900 focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                    className="w-full sm:w-auto px-3 py-2.5 rounded-xl border border-slate-300 font-semibold text-xs sm:text-sm bg-white text-slate-900 focus:ring-2 focus:ring-indigo-500 cursor-pointer min-h-[44px]"
                   >
                     {STATUS_OPTIONS.map(st => (
                       <option key={st} value={st}>{st}</option>
@@ -619,17 +669,17 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
               </div>
 
               {/* Full Description */}
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600">
                   Full Anonymous Complaint Description
                 </h4>
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-sm text-slate-800 whitespace-pre-wrap leading-relaxed">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 whitespace-pre-wrap leading-relaxed">
                   {selectedComplaint.description}
                 </div>
               </div>
 
               {/* Timestamps */}
-              <div className="grid grid-cols-2 gap-4 text-xs text-slate-500 border-t border-slate-100 pt-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-500 border-t border-slate-100 pt-3">
                 <div>
                   <span className="font-semibold text-slate-700 block">Submitted At</span>
                   <span>{new Date(selectedComplaint.created_at).toLocaleString()}</span>
@@ -656,19 +706,19 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
                 </div>
 
                 {/* Notes History */}
-                <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
+                <div className="space-y-2 max-h-44 overflow-y-auto pr-1">
                   {adminNotes.length === 0 ? (
-                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/60 text-center text-xs text-slate-500">
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center text-xs text-slate-500">
                       No internal notes recorded for this complaint yet.
                     </div>
                   ) : (
                     adminNotes.map(note => (
-                      <div key={note.id} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
+                      <div key={note.id} className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                         <div className="flex items-center justify-between text-[11px] text-slate-500">
-                          <span className="font-bold text-slate-700">
+                          <span className="font-bold text-slate-700 truncate pr-2">
                             {note.admin_email || 'Authorized Administrator'}
                           </span>
-                          <span>{new Date(note.created_at).toLocaleString()}</span>
+                          <span className="shrink-0">{new Date(note.created_at).toLocaleDateString()}</span>
                         </div>
                         <p className="text-xs text-slate-800 whitespace-pre-wrap leading-normal">
                           {note.note}
@@ -685,13 +735,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitAdmin, onOpenSetup
                     placeholder="Add an internal note or action update..."
                     value={newNoteText}
                     onChange={(e) => setNewNoteText(e.target.value)}
-                    className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 bg-white text-slate-900 focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 text-base sm:text-sm rounded-xl border border-slate-300 bg-white text-slate-900 focus:ring-2 focus:ring-indigo-500 min-h-[60px]"
                   />
                   <div className="flex justify-end">
                     <button
                       type="submit"
                       disabled={isSubmittingNote || !newNoteText.trim()}
-                      className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 transition-colors cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 transition-colors cursor-pointer min-h-[44px]"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>{isSubmittingNote ? 'Saving...' : 'Add Internal Note'}</span>
