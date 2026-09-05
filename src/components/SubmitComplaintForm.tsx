@@ -210,39 +210,41 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
     <div className="max-w-7xl mx-auto p-3 sm:p-6 lg:p-8 flex-grow flex flex-col lg:flex-row gap-6 lg:gap-8">
       
       {/* Left Column: Branding & Professional Polish Info */}
-      <div className="w-full lg:w-1/3 flex flex-col justify-center pr-0 lg:pr-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold mb-3 sm:mb-6 w-fit">
-          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <div className="w-full lg:w-1/3 flex flex-col justify-center pr-0 lg:pr-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-[11px] font-bold tracking-wide uppercase mb-4 sm:mb-6 w-fit shadow-xs">
+          <Lock className="w-3.5 h-3.5 text-emerald-500" />
           100% Anonymous & Secure
         </div>
 
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-2 sm:mb-4">
-          Speak Your Truth <br />
-          <span className="text-indigo-600">Without Compromise.</span>
+        <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-slate-900 leading-[1.1] mb-4 sm:mb-6 tracking-tight">
+          Speak Your Truth. <br className="hidden sm:block lg:hidden" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+            Without Compromise.
+          </span>
         </h1>
 
-        <p className="text-slate-600 text-sm sm:text-lg leading-relaxed mb-4 sm:mb-8">
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-10 max-w-md">
           Our platform ensures your identity remains completely hidden. We do not collect names, emails, or IP addresses. Your safety is our priority.
         </p>
 
-        <div className="hidden sm:space-y-4 sm:block mb-4 lg:mb-0">
-          <div className="flex items-start gap-3">
-            <div className="mt-1 bg-slate-200 p-1.5 rounded flex items-center justify-center shrink-0">
-              <Check className="w-4 h-4 text-slate-700 stroke-[2.5]" />
+        <div className="hidden sm:flex flex-col gap-6 mb-4 lg:mb-0">
+          <div className="flex items-start gap-3.5">
+            <div className="mt-0.5 bg-white shadow-sm border border-slate-200 w-8 h-8 rounded-full flex items-center justify-center shrink-0">
+              <Check className="w-4 h-4 text-indigo-600 stroke-[3]" />
             </div>
             <div>
-              <p className="font-semibold text-slate-800 text-sm">Zero-Knowledge Tracking</p>
-              <p className="text-xs text-slate-500">Use your unique Report ID to follow progress.</p>
+              <p className="font-bold text-slate-900 text-sm">Zero-Knowledge Tracking</p>
+              <p className="text-sm text-slate-500 mt-0.5 leading-snug">Use your unique Report ID to securely follow resolution progress.</p>
             </div>
           </div>
 
-          <div className="flex items-start gap-3">
-            <div className="mt-1 bg-slate-200 p-1.5 rounded flex items-center justify-center shrink-0">
-              <Check className="w-4 h-4 text-slate-700 stroke-[2.5]" />
+          <div className="flex items-start gap-3.5">
+            <div className="mt-0.5 bg-white shadow-sm border border-slate-200 w-8 h-8 rounded-full flex items-center justify-center shrink-0">
+              <Check className="w-4 h-4 text-indigo-600 stroke-[3]" />
             </div>
             <div>
-              <p className="font-semibold text-slate-800 text-sm">Encrypted Submissions</p>
-              <p className="text-xs text-slate-500">All data is stored using industry-standard RLS protocols.</p>
+              <p className="font-bold text-slate-900 text-sm">Encrypted Submissions</p>
+              <p className="text-sm text-slate-500 mt-0.5 leading-snug">All data is stored using industry-standard RLS security protocols.</p>
             </div>
           </div>
         </div>
@@ -252,10 +254,10 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
       <div className="w-full lg:w-2/3 flex flex-col gap-5 sm:gap-6">
         
         {/* Submission Card */}
-        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-4 sm:p-8">
-          <div className="flex justify-between items-center mb-5 sm:mb-6">
-            <h2 className="text-lg sm:text-xl font-bold text-slate-800">New Anonymous Report</h2>
-            <span className="text-[11px] sm:text-xs text-slate-400 font-mono bg-slate-50 px-2 py-1 rounded border border-slate-100">REF: NEW_ENTRY</span>
+        <div className="bg-white border border-slate-200/80 rounded-[2rem] shadow-sm p-5 sm:p-8 sm:px-10">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">New Anonymous Report</h2>
+            <p className="text-sm text-slate-500 mt-1">Your identity is protected by end-to-end zero-knowledge protocols.</p>
           </div>
 
           {/* Validation Error Banner */}
@@ -273,15 +275,15 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               
               {/* Category */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="complaint-category" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="complaint-category" className="text-xs font-bold text-slate-500 uppercase tracking-wider pl-1">
                   Category
                 </label>
                 <select
                   id="complaint-category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value as ComplaintCategory)}
-                  className="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-base sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 cursor-pointer min-h-[44px]"
+                  className="bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-base sm:text-sm focus:bg-white focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 outline-none text-slate-900 cursor-pointer transition-all min-h-[48px] shadow-xs"
                 >
                   {CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>
@@ -292,8 +294,8 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
               </div>
 
               {/* Complaint Title */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="complaint-title" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="complaint-title" className="text-xs font-bold text-slate-500 uppercase tracking-wider pl-1">
                   Complaint Title
                 </label>
                 <input
@@ -304,31 +306,31 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
                   placeholder="Summarize your concern"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-base sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 min-h-[44px]"
+                  className="bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-base sm:text-sm focus:bg-white focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 outline-none text-slate-900 transition-all min-h-[48px] shadow-xs placeholder:text-slate-400"
                 />
               </div>
 
             </div>
 
             {/* Detailed Description */}
-            <div className="flex flex-col gap-1.5 mb-5 sm:mb-6">
-              <div className="flex justify-between items-center">
+            <div className="flex flex-col gap-2 mb-6 sm:mb-8">
+              <div className="flex justify-between items-center pl-1">
                 <label htmlFor="complaint-description" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                   Detailed Description
                 </label>
-                <span className="text-xs text-slate-400 font-mono">
-                  {description.length}/5000
+                <span className="text-xs text-slate-400 font-medium">
+                  {description.length} / 5000
                 </span>
               </div>
               <textarea
                 id="complaint-description"
                 required
-                rows={4}
+                rows={5}
                 maxLength={5000}
                 placeholder="Provide as much detail as possible. Your anonymity is guaranteed..."
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-base sm:text-sm min-h-[120px] focus:ring-2 focus:ring-indigo-500 outline-none resize-none text-slate-900 leading-relaxed"
+                className="bg-slate-50 border border-slate-200 rounded-2xl px-4 py-4 text-base sm:text-sm min-h-[140px] focus:bg-white focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 outline-none resize-none text-slate-900 leading-relaxed transition-all shadow-xs placeholder:text-slate-400"
               />
             </div>
 
@@ -337,7 +339,7 @@ export const SubmitComplaintForm: React.FC<SubmitComplaintFormProps> = ({ onChec
               id="submit-complaint-btn"
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 disabled:from-indigo-400 disabled:to-indigo-400 text-white font-extrabold py-3.5 min-h-[50px] rounded-xl shadow-md shadow-indigo-200/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer text-base sm:text-sm tracking-wide"
+              className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed text-white font-extrabold py-4 min-h-[56px] rounded-2xl shadow-md shadow-indigo-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer text-base tracking-wide"
             >
               {isSubmitting ? (
                 <>

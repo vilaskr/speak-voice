@@ -20,6 +20,8 @@ export default function App() {
       const hash = window.location.hash;
       if (path.includes('/adminpanel') || hash.includes('adminpanel')) {
         setActiveTab('admin');
+      } else if (path.includes('/sqlsetup') || hash.includes('sqlsetup')) {
+        setIsSetupModalOpen(true);
       }
     };
 

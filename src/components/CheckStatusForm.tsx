@@ -83,25 +83,25 @@ export const CheckStatusForm: React.FC<CheckStatusFormProps> = ({ initialReportI
     <div className="max-w-3xl mx-auto py-6 sm:py-10 px-3 sm:px-6 flex-grow">
       
       {/* Header */}
-      <div className="text-center space-y-2.5 mb-6 sm:mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold">
+      <div className="text-center space-y-3 mb-8 sm:mb-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[11px] font-bold uppercase tracking-wide shadow-xs">
           <Clock className="w-3.5 h-3.5 text-indigo-600" />
           <span>Zero-Knowledge Status Tracker</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
           Track Complaint Status
         </h1>
-        <p className="text-slate-600 text-xs sm:text-base max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
           Enter your unique Report ID below to track real-time resolution progress without logging in or exposing your identity.
         </p>
       </div>
 
       {/* Search Input Box Card */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-8 space-y-6">
+      <div className="bg-white rounded-[2rem] border border-slate-200/80 shadow-sm p-6 sm:p-10 space-y-6">
 
         <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} className="space-y-4">
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="report-id-input" className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="report-id-input" className="text-xs font-bold text-slate-500 uppercase tracking-wider pl-1">
               Your Report ID
             </label>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -111,13 +111,13 @@ export const CheckStatusForm: React.FC<CheckStatusFormProps> = ({ initialReportI
                 placeholder="SPK-9F82-X7L4"
                 value={reportIdInput}
                 onChange={(e) => setReportIdInput(e.target.value.toUpperCase())}
-                className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-mono text-base font-bold tracking-wider uppercase focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 min-h-[48px]"
+                className="flex-1 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 font-mono text-base font-bold tracking-wider uppercase focus:bg-white focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 outline-none text-slate-900 min-h-[56px] shadow-xs"
               />
               <button
                 id="check-status-btn"
                 type="submit"
                 disabled={isLoading}
-                className="bg-slate-900 hover:bg-black active:scale-[0.98] disabled:bg-slate-400 text-white font-extrabold px-6 py-3 rounded-xl transition-all shadow-md shadow-slate-200/80 shrink-0 cursor-pointer flex items-center justify-center gap-2 min-h-[48px] text-base"
+                className="bg-slate-900 hover:bg-black active:scale-[0.98] disabled:bg-slate-400 text-white font-extrabold px-8 py-4 rounded-2xl transition-all shadow-md shadow-slate-200/80 shrink-0 cursor-pointer flex items-center justify-center gap-2 min-h-[56px] text-base"
               >
                 {isLoading ? (
                   <>
